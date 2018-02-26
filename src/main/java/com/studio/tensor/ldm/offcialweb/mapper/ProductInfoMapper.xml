@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studio.tensor.ldm.offcialweb.dao.ProductInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.studio.tensor.ldm.offcialweb.pojo.ProductInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="des" property="des" jdbcType="VARCHAR" />
+    <result column="jump_url" property="jumpUrl" jdbcType="VARCHAR" />
+    <result column="pic_sort" property="picSort" jdbcType="INTEGER" />
+    <result column="pic_url" property="picUrl" jdbcType="VARCHAR" />
+    <result column="download_version" property="downloadVersion" jdbcType="VARCHAR" />
+    <result column="download_update_date" property="downloadUpdateDate" jdbcType="TIMESTAMP" />
+    <result column="download_size" property="downloadSize" jdbcType="DOUBLE" />
+    <result column="download_price" property="downloadPrice" jdbcType="VARCHAR" />
+    <result column="download_url" property="downloadUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, des, jump_url, pic_sort, pic_url, download_version, download_update_date, 
+    download_size, download_price, download_url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from product_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from product_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.studio.tensor.ldm.offcialweb.pojo.ProductInfo" >
+    insert into product_info (id, title, des, 
+      jump_url, pic_sort, pic_url, 
+      download_version, download_update_date, 
+      download_size, download_price, download_url
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, 
+      #{jumpUrl,jdbcType=VARCHAR}, #{picSort,jdbcType=INTEGER}, #{picUrl,jdbcType=VARCHAR}, 
+      #{downloadVersion,jdbcType=VARCHAR}, #{downloadUpdateDate,jdbcType=TIMESTAMP}, 
+      #{downloadSize,jdbcType=DOUBLE}, #{downloadPrice,jdbcType=VARCHAR}, #{downloadUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.studio.tensor.ldm.offcialweb.pojo.ProductInfo" >
+    insert into product_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="des != null" >
+        des,
+      </if>
+      <if test="jumpUrl != null" >
+        jump_url,
+      </if>
+      <if test="picSort != null" >
+        pic_sort,
+      </if>
+      <if test="picUrl != null" >
+        pic_url,
+      </if>
+      <if test="downloadVersion != null" >
+        download_version,
+      </if>
+      <if test="downloadUpdateDate != null" >
+        download_update_date,
+      </if>
+      <if test="downloadSize != null" >
+        download_size,
+      </if>
+      <if test="downloadPrice != null" >
+        download_price,
+      </if>
+      <if test="downloadUrl != null" >
+        download_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="jumpUrl != null" >
+        #{jumpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="picSort != null" >
+        #{picSort,jdbcType=INTEGER},
+      </if>
+      <if test="picUrl != null" >
+        #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadVersion != null" >
+        #{downloadVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadUpdateDate != null" >
+        #{downloadUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadSize != null" >
+        #{downloadSize,jdbcType=DOUBLE},
+      </if>
+      <if test="downloadPrice != null" >
+        #{downloadPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadUrl != null" >
+        #{downloadUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.studio.tensor.ldm.offcialweb.pojo.ProductInfo" >
+    update product_info
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null" >
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="jumpUrl != null" >
+        jump_url = #{jumpUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="picSort != null" >
+        pic_sort = #{picSort,jdbcType=INTEGER},
+      </if>
+      <if test="picUrl != null" >
+        pic_url = #{picUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadVersion != null" >
+        download_version = #{downloadVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadUpdateDate != null" >
+        download_update_date = #{downloadUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="downloadSize != null" >
+        download_size = #{downloadSize,jdbcType=DOUBLE},
+      </if>
+      <if test="downloadPrice != null" >
+        download_price = #{downloadPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadUrl != null" >
+        download_url = #{downloadUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.studio.tensor.ldm.offcialweb.pojo.ProductInfo" >
+    update product_info
+    set title = #{title,jdbcType=VARCHAR},
+      des = #{des,jdbcType=VARCHAR},
+      jump_url = #{jumpUrl,jdbcType=VARCHAR},
+      pic_sort = #{picSort,jdbcType=INTEGER},
+      pic_url = #{picUrl,jdbcType=VARCHAR},
+      download_version = #{downloadVersion,jdbcType=VARCHAR},
+      download_update_date = #{downloadUpdateDate,jdbcType=TIMESTAMP},
+      download_size = #{downloadSize,jdbcType=DOUBLE},
+      download_price = #{downloadPrice,jdbcType=VARCHAR},
+      download_url = #{downloadUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

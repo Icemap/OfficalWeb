@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.studio.tensor.ldm.offcialweb.dao.QAInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.studio.tensor.ldm.offcialweb.pojo.QAInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="q" property="q" jdbcType="VARCHAR" />
+    <result column="a" property="a" jdbcType="VARCHAR" />
+    <result column="is_root" property="isRoot" jdbcType="TINYINT" />
+    <result column="belong_id" property="belongId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, q, a, is_root, belong_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from q_a_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from q_a_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.studio.tensor.ldm.offcialweb.pojo.QAInfo" >
+    insert into q_a_info (id, title, q, 
+      a, is_root, belong_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{q,jdbcType=VARCHAR}, 
+      #{a,jdbcType=VARCHAR}, #{isRoot,jdbcType=TINYINT}, #{belongId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.studio.tensor.ldm.offcialweb.pojo.QAInfo" >
+    insert into q_a_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="q != null" >
+        q,
+      </if>
+      <if test="a != null" >
+        a,
+      </if>
+      <if test="isRoot != null" >
+        is_root,
+      </if>
+      <if test="belongId != null" >
+        belong_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="q != null" >
+        #{q,jdbcType=VARCHAR},
+      </if>
+      <if test="a != null" >
+        #{a,jdbcType=VARCHAR},
+      </if>
+      <if test="isRoot != null" >
+        #{isRoot,jdbcType=TINYINT},
+      </if>
+      <if test="belongId != null" >
+        #{belongId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.studio.tensor.ldm.offcialweb.pojo.QAInfo" >
+    update q_a_info
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="q != null" >
+        q = #{q,jdbcType=VARCHAR},
+      </if>
+      <if test="a != null" >
+        a = #{a,jdbcType=VARCHAR},
+      </if>
+      <if test="isRoot != null" >
+        is_root = #{isRoot,jdbcType=TINYINT},
+      </if>
+      <if test="belongId != null" >
+        belong_id = #{belongId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.studio.tensor.ldm.offcialweb.pojo.QAInfo" >
+    update q_a_info
+    set title = #{title,jdbcType=VARCHAR},
+      q = #{q,jdbcType=VARCHAR},
+      a = #{a,jdbcType=VARCHAR},
+      is_root = #{isRoot,jdbcType=TINYINT},
+      belong_id = #{belongId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
