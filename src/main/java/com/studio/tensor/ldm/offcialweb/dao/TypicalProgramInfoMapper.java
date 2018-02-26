@@ -1,5 +1,7 @@
 package com.studio.tensor.ldm.offcialweb.dao;
 
+import java.util.List;
+
 import com.studio.tensor.ldm.offcialweb.pojo.TypicalProgramInfo;
 
 public interface TypicalProgramInfoMapper {
@@ -14,4 +16,6 @@ public interface TypicalProgramInfoMapper {
     int updateByPrimaryKeySelective(TypicalProgramInfo record);
 
     int updateByPrimaryKey(TypicalProgramInfo record);
+    
+    List<TypicalProgramInfo> selectAll();
 }

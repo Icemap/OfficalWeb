@@ -24,6 +24,14 @@
     from product_info
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product_info
+    order by pic_sort
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from product_info
     where id = #{id,jdbcType=INTEGER}

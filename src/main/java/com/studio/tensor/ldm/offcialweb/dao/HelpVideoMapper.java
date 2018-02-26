@@ -1,5 +1,7 @@
 package com.studio.tensor.ldm.offcialweb.dao;
 
+import java.util.List;
+
 import com.studio.tensor.ldm.offcialweb.pojo.HelpVideo;
 
 public interface HelpVideoMapper {
@@ -14,4 +16,6 @@ public interface HelpVideoMapper {
     int updateByPrimaryKeySelective(HelpVideo record);
 
     int updateByPrimaryKey(HelpVideo record);
+    
+    List<HelpVideo> selectAll();
 }

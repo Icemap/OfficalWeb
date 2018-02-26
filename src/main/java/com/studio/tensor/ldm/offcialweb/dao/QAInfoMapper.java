@@ -1,5 +1,7 @@
 package com.studio.tensor.ldm.offcialweb.dao;
 
+import java.util.List;
+
 import com.studio.tensor.ldm.offcialweb.pojo.QAInfo;
 
 public interface QAInfoMapper {
@@ -14,4 +16,6 @@ public interface QAInfoMapper {
     int updateByPrimaryKeySelective(QAInfo record);
 
     int updateByPrimaryKey(QAInfo record);
+    
+    List<QAInfo> selectAll();
 }

@@ -1,5 +1,7 @@
 package com.studio.tensor.ldm.offcialweb.dao;
 
+import java.util.List;
+
 import com.studio.tensor.ldm.offcialweb.pojo.ProductInfo;
 
 public interface ProductInfoMapper {
@@ -14,4 +16,6 @@ public interface ProductInfoMapper {
     int updateByPrimaryKeySelective(ProductInfo record);
 
     int updateByPrimaryKey(ProductInfo record);
+    
+    List<ProductInfo> selectAll();
 }
