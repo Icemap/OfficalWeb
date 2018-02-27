@@ -2,6 +2,8 @@ package com.studio.tensor.ldm.offcialweb.pojo;
 
 import java.util.Date;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class CarouselPicInfo {
     private Integer id;
 
@@ -11,6 +13,7 @@ public class CarouselPicInfo {
 
     private String tag;
 
+    @JsonIgnore
     private Date time;
 
     private Integer sort;

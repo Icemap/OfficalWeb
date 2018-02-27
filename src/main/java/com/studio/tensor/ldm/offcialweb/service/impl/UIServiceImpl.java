@@ -79,6 +79,11 @@ public class UIServiceImpl
 		return helpInfoMapper.updateByPrimaryKeySelective(helpInfo) == 1;
 	}
 
+	public Boolean helpInfoDelete(Integer id)
+	{
+		return helpInfoMapper.deleteByPrimaryKey(id) == 1;
+	}
+	
 	public List<HelpRootInfo> helpInfoSelectTree()
 	{
 		List<HelpInfo> helpInfoList = helpInfoMapper.selectAll();

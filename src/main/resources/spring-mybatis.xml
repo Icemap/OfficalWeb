@@ -57,6 +57,7 @@
         <property name="dataSource" ref="basedataSource" />
     </bean> 
     
+    
 	<!-- 
 	<bean id="setting"
 		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
